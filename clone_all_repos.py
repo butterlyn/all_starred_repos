@@ -2,6 +2,7 @@ import json
 import os
 import warnings
 from typing import List, Tuple
+from pathlib import Path
 
 
 def extract_repo_data_from_json(
@@ -46,8 +47,8 @@ def clone_all_repos(all_html_urls: list, all_repo_names: list, target_dir: str) 
 
 
 def main():
-    json_folder_path = "all_starred_repos/ghstars-butterlyn"
-    target_dir = "all_starred_repos/starred_repos"
+    json_folder_path = Path("./ghstars-butterlyn")
+    target_dir = Path("./starred_repos")
     all_html_urls, all_repo_names = extract_all_html_urls(json_folder_path)
     clone_all_repos(all_html_urls, all_repo_names, target_dir)
 
